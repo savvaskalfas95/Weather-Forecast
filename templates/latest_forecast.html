@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Latest Forecast</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('list_locations') }}">Locations</a></li>
+                <li><a href="{{ url_for('average_temp') }}">Average Temperature</a></li>
+                <li><a href="{{ url_for('top_locations') }}">Top Locations</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Latest Forecasts</h2>
+        <table>
+            <tr>
+                <th>Coordinates</th>
+                <th>Date</th>
+                <th>Temperature (°C)</th>
+                <th>Humidity (%)</th>
+                <th>Wind Speed (km/h)</th>
+            </tr>
+            {% for forecast in forecasts %}
+            <tr>
+                <td>{{ forecast.coordinates }}</td>
+                <td>{{ forecast.date }}</td>
+                <td>{{ forecast.temperature }}</td>
+                <td>{{ forecast.humidity }}</td>
+                <td>{{ forecast.windspeed }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </main>
+</body>
+</html>

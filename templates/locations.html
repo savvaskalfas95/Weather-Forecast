@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Locations</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('list_locations') }}">List Locations</a></li>
+                <li><a href="{{ url_for('latest_forecast') }}">Latest Forecast</a></li>
+                <li><a href="{{ url_for('average_temp') }}">Average Temperature</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Locations and Their Names</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Coordinates</th>
+                        <th>Location Name</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for coordinates, name in locations %}
+                    <tr>
+                        <td>{{ coordinates }}</td>
+                        <td>{{ name }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>

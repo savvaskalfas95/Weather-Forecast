@@ -1,0 +1,45 @@
+Instructions :
+
+1)Extract the .rar file in your desired location.
+
+2)Download and install python if needed (https://www.python.org/downloads/)
+
+3)Download and install MySQL and MySQL workbench if needed (version 8.0+) (https://dev.mysql.com/downloads/workbench/)
+
+4)Open a CMD terminal or a powershell in the location you have extracted the .rar 
+For example (C:\Users\UserName\Desktop\Weather forecast\
+
+5)Install the necessary dependencies:
+pip install flask mysql-connector-python --user
+
+6)Setup mysql workbench
+
+Run the sql script inside the folder 'Documentation' to initialize the database and the table.
+
+**In order to run the python files you need again a terminal in the location (..\..\Weather forecast)**
+
+7)First run fetch_data.py to fetch the data from the weather api  : Type in the terminal python fetch_data.py.
+
+**IMPORTANT** 
+
+-In the files fetch_data.py and app.py inside the code there is a part of code where the configuration of the database takes place, for example :
+
+    db_config = {
+        'user': 'root',  
+        'password': 'test1', 
+        'database': 'weatherAPI'  
+    }
+
+Those are my personal credentials for MySQL workbench, the database part is the same since you run my SQL script.
+Please change the 'user' and 'password' to the ones you are using for your MySQL workbench.
+
+-In fetch_data.py, inside the function fetch_weather_data(api_url), you can see my credentials for https://www.meteomatics.com/en/weather-api/.
+We need those credentials to execute requests from the api. I recieved my credentials for free trial from the site. Feel free to use them!
+
+8)Last, in order to run the app, type in the terminal :
+python -m flask run
+
+9)Open a web browser and paste : http://127.0.0.1:5000/
+
+10)Enjoy!!! :)
+

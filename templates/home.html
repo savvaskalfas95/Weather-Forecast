@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Weather App</h1>
+        <p style="color:black">Select a page from the navigation menu to get started.</p>
+        <nav>
+            <ul>
+                <li><a href="{{ '/locations'}}">Locations</a></li>
+                <li><a href="{{ url_for('latest_forecast') }}">Latest Forecast</a></li>
+                <li><a href="{{ url_for('average_temp') }}">Average Temperature</a></li>
+                <li><a href="{{ url_for('top_locations') }}">Top Locations</a></li>
+            </ul>
+        </nav>
+    </header>
+</body>
+</html>

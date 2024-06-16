@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Top Locations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Top Locations</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('list_locations') }}">Locations</a></li>
+                <li><a href="{{ url_for('latest_forecast') }}">Latest Forecast</a></li>
+                <li><a href="{{ url_for('average_temp') }}">Average Temperature</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h2>Top {{ n }} Locations by Temperature (°C)</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Coordinates</th>
+                        <th>Max Temperature (°C)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for location in top_temperature %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ location[0] }}</td>
+                        <td>{{ location[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h2>Top {{ n }} Locations by Humidity (%)</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Coordinates</th>
+                        <th>Max Humidity (%)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for location in top_humidity %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ location[0] }}</td>
+                        <td>{{ location[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <h2>Top {{ n }} Locations by Wind Speed (km/h)</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Coordinates</th>
+                        <th>Max Wind Speed (km/h)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for location in top_windspeed %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ location[0] }}</td>
+                        <td>{{ location[1] }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </main>
+</body>
+</html>
